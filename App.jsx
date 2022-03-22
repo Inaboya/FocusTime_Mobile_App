@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text, Platform } from "react-native";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage  from "@react-native-async-storage/async-storage";
 import { Focus } from "./src/features/focus/Focus";
 import { Timer } from "./src/features/timer/Timer";
 import { marginSizes } from "./src/utils/size";
@@ -66,7 +66,7 @@ const App = () => {
           }}
         />
       ) : (
-        <View style={{ flex: 1 }}>
+        <View style={{flex: 1}}>
           <Focus addSubject={setFocusObject} />
           <FocusHistory focusHistory={focusHistory} onClear={onClear} />
         </View>

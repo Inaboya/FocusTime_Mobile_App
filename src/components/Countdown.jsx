@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Animated } from "react-native";
 import { fontSizes, paddingSizes } from "../utils/size";
 
 const minutesToMilliseconds = (mins) => mins * 1000 * 60;
-const formatTime = (time) => (time < 10 ? `0${time}`:time);
+const formatTime = (time) => (time < 10 ? `0${time}` : time);
 export const Countdown = ({ minutes, isPaused, onProgress, onEnd }) => {
   const interval = useRef(null);
   const [timeLeft, setTimeLeft] = useState(null);
@@ -25,7 +25,11 @@ export const Countdown = ({ minutes, isPaused, onProgress, onEnd }) => {
   };
 
   useEffect(() => {
-      onProgress(timeLeft / minutesToMilliseconds(minutes));
+    onProgress(timeLeft / minutesToMilliseconds(minutes));
+
+    if (timeLeft === 0) {
+      onEnd();
+    }
   }, [timeLeft]);
 
   useEffect(() => {
